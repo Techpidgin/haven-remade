@@ -26,12 +26,12 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/85 backdrop-blur-xl border-b border-border"
-          : "bg-transparent"
+          ? "bg-background/85 backdrop-blur-xl border-b border-border text-foreground"
+          : "bg-transparent text-ink-foreground"
       }`}
     >
       <div className="mx-auto flex h-20 max-w-[92rem] items-center justify-between px-5 md:px-10">
-        <Link to="/" className="text-foreground" onClick={() => setOpen(false)}>
+        <Link to="/" className="text-current" onClick={() => setOpen(false)}>
           <Logo />
         </Link>
 
@@ -40,7 +40,7 @@ export function Header() {
             <Link
               key={item.to}
               to={item.to}
-              className="eyebrow text-foreground/70 transition-colors hover:text-accent link-underline"
+              className="eyebrow text-current/70 transition-colors hover:text-accent link-underline"
               activeProps={{ className: "eyebrow text-accent link-underline" }}
               activeOptions={{ exact: item.to === "/" }}
             >
@@ -52,16 +52,16 @@ export function Header() {
         <div className="flex items-center gap-4">
           <button
             aria-label="Search"
-            className="hidden h-9 w-9 items-center justify-center text-foreground/70 transition-colors hover:text-accent md:flex"
+            className="hidden h-9 w-9 items-center justify-center text-current/70 transition-colors hover:text-accent md:flex"
           >
             <Search size={17} strokeWidth={1.4} />
           </button>
-          <span className="hidden h-5 w-px bg-border md:block" />
+          <span className="hidden h-5 w-px bg-current/25 md:block" />
           <button
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="flex h-9 w-9 items-center justify-center text-foreground transition-colors hover:text-accent"
+            className="flex h-9 w-9 items-center justify-center text-current transition-colors hover:text-accent"
           >
             {open ? <X size={20} strokeWidth={1.4} /> : <Menu size={20} strokeWidth={1.4} />}
           </button>
